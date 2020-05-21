@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+	<html >
+	<!--From https://codepen.io/frytyler/pen/EGdtg-->
+	<head>
+	<meta charset="UTF-8">
+	<title>TPH Prediction</title>
+	</head>
+
+	<body>
+	<div class="login">
+	<h1>TPH Prediction</h1>
+
+	<!-- Main Input For Receiving Query to our ML -->
+	<form action="{{ url_for('predict')}}"method="post">
+<table border="1">
+
+	<tr >
+	    <th width="230">Parameters</th>
+	    <th width="180">Typical Value</th>
+	    <th>Enter Value</th>
+  	</tr>
+  	<tr>
+	    <td height="40"><label for="RP_power">RP Power (kW)</label></td>
+	    <td style="text-align:right" >2200</td>
+	    <td><input type="text"  style="text-align:right;" name="RP_power"  required="required" /><br /></td>
+  </tr>
+  	<tr>
+	    <td height="40"><label for="Ball_Mill">Ball Mill Power (kW)</label></td>
+	    <td style="text-align:right" >2150</td>
+	    <td><input type="text"  style="text-align:right;" name="Ball_Mill" required="required" /><br /></td>
+  </tr>
+   	<tr>
+ 	    <td height="40"><label for="RP_Bin_Level">RP Bin Level (%)</label></td>
+ 	    <td style="text-align:right" >88</td>
+ 	    <td><input type="text"  style="text-align:right;" name="RP_Bin_Level"  required="required" /><br /></td>
+  </tr>
+    	<tr>
+  	    <td height="40"><label for="Clinker">Clinker Proportion (%)</label></td>
+  	    <td style="text-align:right" >61</td>
+  	    <td><input type="text"  style="text-align:right;" name="Clinker"  required="required" /><br /></td>
+  </tr>
+    	<tr>
+  	    <td height="40"><label for="BM_Frate">BM Feed Rate (TPH)</label></td>
+  	    <td style="text-align:right" >210</td>
+  	    <td><input type="text"  style="text-align:right;" name="BM_Frate"  required="required" /><br /></td>
+  </tr>
+    	<tr>
+  	    <td height="40"><label for="SFbyS">Separator Fan kW/ Separator kW</label></td>
+  	    <td style="text-align:right" >3.8</td>
+  	    <td><input type="text"  style="text-align:right;" name="SFbyS"  required="required" /><br /></td>
+  </tr>
+    	<tr>
+  	    <td height="40"><label for="PA_prop">PA Proportion (%)</label></td>
+  	    <td style="text-align:right" >2</td>
+  	    <td><input type="text"  style="text-align:right;" name="PA_prop"  required="required" /><br /></td>
+  </tr>
+    	<tr>
+  	    <td height="40"><label for="S_ByDamper">S.Separator Bypass (%)</label></td>
+  	    <td style="text-align:right" >67</td>
+  	    <td><input type="text"  style="text-align:right;" name="S_ByDamper" required="required" /><br /></td>
+  </tr>
+
+	<tr>
+	    	<td height="40"><label>Predicted Throughput (TPH)</label></td>
+	    	<td style="text-align:right" >240.0</td>
+	    	<td  style="text-align:right">{{ prediction_text }}<br /></td>
+  </tr>
+	</table>
+	<br>
+	<br>
+	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+	</form>
+
+	</div>
+
+
+	</body>
+	</html>
